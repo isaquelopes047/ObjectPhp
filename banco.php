@@ -2,31 +2,29 @@
 
 require_once './src/Conta.php';
 require_once './src/Cliente.php';
+require_once './src/CPF.php';
+require_once './src/Endereco.php';
+require_once './src/Dependentes.php';
 
-$primeiraConta = new Conta(new Titular(
-    nome: 'Isaque Lopes de Souza',
-    cpf: '123.123.123-23',
-    )
+$Isaque = new Titular(
+    new CPF
+        (
+        numero: '123.123.123-03'
+    ), 
+    new DadosEndereco(
+        Cidade: 'Barra Velha',
+        Bairro: 'Loa Angeles',
+        Rua: 'Lucio Brugnago',
+        numeroResidencia: 211,
+    ),
+    new Dependentes(
+        dependentes: 3,
+    ),
+    nome: 'Isaque'
 );
 
-$segundaConta = new Conta(new Titular(
-    nome: 'Bianca Maria Trapp Blaska',
-    cpf: '321.321.321-32'
-    )
-);
+$primeiraConta = new Conta($Isaque);
 
-echo Conta::recuperaNumeroDeContas();
-
-/* $primeiraConta->defineCpfTitular(cpf:'123.123.123.12');
-$primeiraConta->defineNomeTitular(nome:'Isaque Lopes de Souza');
-
-$primeiraConta->depositar(valorADepositar: 500) . PHP_EOL;
-$primeiraConta->defineNomeTitular(nome:'Isaque Lopes de Souza') . PHP_EOL;
-$primeiraConta->sacar(200);
-
-echo $primeiraConta->recuperarNomeTitular() . PHP_EOL;
-echo $primeiraConta->recuperarSaldo() . PHP_EOL;
-
-echo $primeiraConta->recuperarCpfTitular() . PHP_EOL;
-echo $primeiraConta->recuperarNomeTitular() . PHP_EOL;
-echo $primeiraConta->recuperarSaldo() . PHP_EOL; */
+echo $primeiraConta->getCidade() . PHP_EOL;
+echo $primeiraConta->getDependentes() . PHP_EOL;
+echo $primeiraConta->getCpf();
