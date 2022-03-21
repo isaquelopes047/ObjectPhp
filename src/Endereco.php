@@ -1,37 +1,37 @@
 <?php
 
-class DadosEndereco{
+class Endereco{
 
     private string $Cidade;
     private string $Bairro;
     private string $Rua;
-    private int $numeroResidencia;
+    private string $numero;
 
-    public function __construct(string $Cidade, string $Bairro, string $Rua, int $numeroResidencia)
+    public function __construct(string $Cidade, string $Bairro, string $Rua, string $numero)
     {
         $this->Cidade = $Cidade;
         $this->Bairro = $Bairro;
         $this->Rua = $Rua;
-        $this->numeroResidencia = $numeroResidencia;
+        $this->numero = $numero;
     }
 
-    public function recuperaCidade()
+    public function recuperaCidade():string
     {
         return $this->Cidade;
     }
 
-    public function recuperaBairro()
+    public function recuperaBairro():string
     {
         return $this->Bairro;
     }
 
-    public function recuperaRua()
+    public function recuperaRua():string
     {
         return $this->Rua;
     }
 
-    public function recuperaNumeroResidencia()
+    public function recuperaNumeroResidencia():string
     {
-        return $this->numeroResidencia;
+        return $this->numero;
     }
 }

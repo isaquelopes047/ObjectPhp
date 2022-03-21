@@ -2,12 +2,12 @@
 
 class Titular
 {
-    private DadosEndereco $Endereco;
+    private Endereco $Endereco;
     private Dependentes $dependentes;
     private CPF $cpf;
     private string $nome;
 
-    public function __construct(CPF $cpf, DadosEndereco $Endereco, Dependentes $dependentes, string $nome)
+    public function __construct(CPF $cpf, Endereco $Endereco, Dependentes $dependentes, string $nome)
     {
         $this->Endereco = $Endereco;
         $this->dependentes = $dependentes;
