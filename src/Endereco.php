@@ -1,7 +1,7 @@
 <?php
 
-class Endereco{
-
+class Endereco
+{
     private string $Cidade;
     private string $Bairro;
     private string $Rua;

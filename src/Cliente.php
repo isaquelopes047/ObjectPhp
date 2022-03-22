@@ -1,47 +1,35 @@
 <?php
 
-class Titular
+class Titular extends Pessoa
 {
     private Endereco $Endereco;
-    private Dependentes $dependentes;
-    private CPF $cpf;
-    private string $nome;
 
-    public function __construct(CPF $cpf, Endereco $Endereco, Dependentes $dependentes, string $nome)
+    public function __construct(CPF $cpf, Endereco $Endereco, string $nome)
     {
-        $this->Endereco = $Endereco;
-        $this->dependentes = $dependentes;
         $this->cpf = $cpf;
         $this->nome = $nome;
         $this->validaNomeTitular($nome);
+        $this->Endereco = $Endereco;
     }
 
-    public function recuperaCpf():string
-    {
-        return $this->cpf->recuperaNumero();
-    }
-
-    public function recuperaNome():string
-    {
-        return $this->nome;
-    }
-
-    public function recuperaEndereco():string
+    //getsEndereco
+    public function recuperaEnderecoCidade():string
     {  
         return $this->Endereco->recuperaCidade();
     }
 
-    public function recuperaNumeroDependentes():int
+    public function recuperaEnderecoBairro():string
     {
-        return $this->dependentes->recuperaDependestes();
+        return $this->Endereco->recuperaBairro();
     }
 
-    private function validaNomeTitular($nome) 
-    // tornando o metodo privado para evitar o acesso dele fora
+    public function recuperaEnderecoRua():string
     {
-        if(strlen($nome) < 5){
-            echo "Nome precisa ter pelo menor 5 caracteres";
-            exit();
-        }
+        return $this->Endereco->recuperaRua();
+    }
+
+    public function recuperaEndecoNumeroResidencia():string
+    {
+        return $this->Endereco->recuperaNumeroResidencia();
     }
 }

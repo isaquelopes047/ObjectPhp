@@ -71,13 +71,24 @@ class Conta
         return $this->titular->recuperaCpf();
     }
 
+    //getsEndereco
     public function getCidade():string
     {
-        return $this->titular->recuperaEndereco();
+        return $this->titular->recuperaEnderecoCidade();
     }
 
-    public function getDependentes():int
+    public function getBairro():string
     {
-        return $this->titular->recuperaNumeroDependentes();
+        return $this->titular->recuperaEnderecoBairro();
+    }
+
+    public function getRua():string
+    {
+        return $this->titular->recuperaEnderecoRua();
+    }
+
+    public function getNumeroResidencia():string
+    {
+        return $this->titular->recuperaEndecoNumeroResidencia();
     }
 }
