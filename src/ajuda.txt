@@ -1,0 +1,42 @@
+
+
+PARENT HERANÇA PHP
+
+SEMPRE QUE TIVER UMA CLASSE E ESSA CLASSE FOR EXTENDIDA A OUTRAS CLASSE
+
+
+class marcas
+{
+    private string $VOLKSWAGEN
+
+    public function __construct(string $VOLKSWAGEN)
+    {
+        $this->VOLKSWAGEN = $VOLKSWAGEN;
+    }
+};
+
+class carros extends marcas
+{
+    private string $GOL
+
+    public function __construct(string $GOL)
+    {
+        $this->GOL = $GOL;
+    }
+};
+
+Nsse exemplo a classe carros recebe os atributos da classe marcas, mas como definimos isso no PHP para o __construct?
+Usamos o parent::__construct() <- passando dentro como parametro os atributos que a classe herdada, a classe "pai".
+
+class carros extends marcas
+{
+    private string $GOL
+
+    public function __construct($GOL, $VOLKSWAGEN)
+    {
+        parent::__construct($VOLKSWAGEN);
+        $this->GOL = $GOL;
+    }
+};
+
+Assim passamos os atributos da classe 'pai' e classe filha, mas sempre lembrando de passar como parametro no construto

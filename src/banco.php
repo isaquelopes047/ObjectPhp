@@ -5,6 +5,7 @@ require_once './src/Funcionarios.php';
 require_once './src/CPF.php';
 
 $umFuncionario = new Funcionarios('Isaque', new CPF('123.123.123-12'), 'Desenvolvedor');
+$umFuncionario->alteraNome('Isaque Lopes');
 var_dump($umFuncionario);
 
 

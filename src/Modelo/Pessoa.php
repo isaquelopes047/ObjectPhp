@@ -2,26 +2,27 @@
 
 class Pessoa
 {
-    public string $nome;
-    public CPF $cpf;
+    protected string $nome;
+    private CPF $cpf;
 
     public function __construct(string $nome, CPF $cpf)
     {
         $this->nome = $nome;
         $this->cpf = $cpf; 
+        $this->validaNomeTitular($nome);
     }
 
-    public function recuperaNome():string
+    /* public function recuperaNome():string
     {
         return $this->nome;
-    }
+    } */
 
     public function recuperaCpf():string
     {
         return $this->cpf->recuperaNumero();
     }
 
-    public function validaNomeTitular($nome) 
+    protected function validaNomeTitular($nome) 
     // tornando o metodo privado para evitar o acesso dele fora
     {
         if(strlen($nome) < 5){

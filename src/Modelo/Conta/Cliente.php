@@ -6,8 +6,7 @@ class Titular extends Pessoa
 
     public function __construct(CPF $cpf, Endereco $Endereco, string $nome)
     {
-        $this->cpf = $cpf;
-        $this->nome = $nome;
+        parent::__construct($nome, $cpf);
         $this->validaNomeTitular($nome);
         $this->Endereco = $Endereco;
     }
